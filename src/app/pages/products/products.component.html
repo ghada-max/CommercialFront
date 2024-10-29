@@ -1,0 +1,83 @@
+<p>Click the names to see more data.</p>
+<div>
+    <h1>Product page</h1>
+</div>
+<hr>
+<button (click)="onAddProduct()">+ Add Product</button>
+<mat-form-field appearance="fill" class="select-container">
+    <mat-label>Select a category</mat-label>
+    <mat-select (selectionChange)="filterByCategory($event.value)">
+      <mat-option >AllCategory</mat-option>
+     <mat-option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</mat-option>
+    </mat-select>
+</mat-form-field>
+  <br>
+
+
+<mat-table [dataSource]="datasource" class="table">
+	
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+</ng-container>
+
+<ng-container matColumnDef="designation">
+  <th mat-header-cell *matHeaderCellDef> Designation </th>
+  <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
+</ng-container>
+
+<ng-container matColumnDef="details">
+  <th mat-header-cell *matHeaderCellDef> Details </th>
+  <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+</ng-container>
+
+<ng-container matColumnDef="price">
+  <th mat-header-cell *matHeaderCellDef> Price </th>
+  <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+</ng-container>
+
+<ng-container matColumnDef="quantity">
+  <th mat-header-cell *matHeaderCellDef> Quantity </th>
+  <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+</ng-container>
+
+<ng-container matColumnDef="category">
+  <th mat-header-cell *matHeaderCellDef> Category </th>
+  <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+</ng-container>
+
+<ng-container matColumnDef="htt">
+  <th mat-header-cell *matHeaderCellDef> htt </th>
+  <td mat-cell *matCellDef="let element"> {{element.htt}} </td>
+</ng-container>
+
+<ng-container matColumnDef="ttc">
+  <th mat-header-cell *matHeaderCellDef> TTC </th>
+  <td mat-cell *matCellDef="let element"> {{element.ttc}} </td>
+</ng-container>
+
+<ng-container matColumnDef="Action">
+  <th mat-header-cell *matHeaderCellDef> Action </th>
+  <td mat-cell *matCellDef="let element">
+      <button mat-icon-button="primary" matTooltip="Edit" (click)="onEditMode(element)"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button="primary" matTooltip="delete" (click)="onDelete(element.id)"><mat-icon>delete</mat-icon></button>
+  </td>
+</ng-container>
+
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</mat-table>
+
+
+<ng-template #confirmDialog let-data>
+  <h2 mat-dialog-title>Confirm Delete</h2>
+  <mat-dialog-content>
+    <p>Are you sure you want to delete this item?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button color="warn" (click)="onConfirm()">Delete</button>
+  </mat-dialog-actions>
+</ng-template>

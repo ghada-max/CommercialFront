@@ -1,0 +1,101 @@
+<div>
+    <h1>Client page</h1>
+</div>
+<hr>
+<div class="row">
+    <div class="col-7">
+        <mat-table [dataSource]="dataSource" class="table">
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> Phone </th>
+                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="address">
+                <th mat-header-cell *matHeaderCellDef> Address </th>
+                <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="TaxId">
+                <th mat-header-cell *matHeaderCellDef> Tax ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.TaxId}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button="primary" matTooltip="Edit" (click)="onUpdateButton(element.id)"><mat-icon>edit</mat-icon></button>
+                    <button mat-icon-button="primary" matTooltip="delete" (click)="onDelete(element.id)"><mat-icon>delete</mat-icon></button>
+                </td>
+            </ng-container>
+
+            <!-- Add header and row definitions -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </mat-table>
+    </div>
+    <div class="col-5">
+        <div class="row">
+            <div class="row mt-2">
+                <div class="col-md-12">
+            <button class="btn btn-primary profile-button"  type="submit"  (click)="addClient()" style="margin-left: 350px;"  >+ Add Client </button>
+                </div></div>
+        </div>
+        <div class="col-md-6 border-right"> <!-- Adjusted from col-md-5 to col-md-6 -->
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Client Profile</h4>
+                </div>
+                <form [formGroup]="clientForm">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="labels">Name</label>
+                            <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Email</label>
+                            <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label class="labels">phone</label>
+                            <input type="text" class="form-control" formControlName="phone" placeholder="phone">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">address</label>
+                            <input type="text" class="form-control" formControlName="address" placeholder="address">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">TaxId</label>
+                            <input type="text" class="form-control" formControlName="TaxId" placeholder="TaxId" [readonly]="!isAddMode" >
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" (click)="onEdit()" type="submit" [disabled]="!isEditMode"  style="margin-right: 10px;" >Edit Profile </button>
+                        <button class="btn btn-primary profile-button" (click)="onAdd()" type="submit" [disabled]="!isAddMode"  >Add client</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

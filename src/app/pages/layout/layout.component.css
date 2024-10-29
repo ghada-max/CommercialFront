@@ -1,0 +1,44 @@
+/* Ensure HTML and body take full height */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between brand and form */
+    align-items: center;            /* Align vertically to center */
+    padding: 10px 20px;             /* Optional padding */
+    background-color: #f8f9fa;      /* Light background like Bootstrap */
+  }
+  
+  .search-form {
+    margin-left: auto; /* Push the form to the right */
+  }
+  
+  .form-control {
+    width: 200px;      /* Control input width */
+  }
+  
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Prevent unwanted scrollbars */
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 280px;
+    background-color: #343a40;
+    color: white;
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+  }
+  
+.bar-container{
+    position: sticky;
+    top: 200px;
+    background-color: white;
+    padding: 10px;
+  }
+  /* Content Styles */
+  .content {
+    flex-grow: 1; /* Take up remaining space */
+    overflow-y: auto; /* Allow vertical scrolling for content */
+    padding: 20px;
+  }
+  

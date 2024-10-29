@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="login-form">
+      <div class="login-form-fields">
+        <div class="login-input-group">
+          <div class="name-password-login-button">
+
+            <!-- User Icon -->
+            <div class="user-icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <form [formGroup]="registerForm">
+              <div class="name">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="firstname" formControlName="firstname" id="firstname" placeholder="firstname">
+              </div>
+
+              <div class="name">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" name="lastname" formControlName="lastname" id="user-password" placeholder="lastname">
+              </div> 
+              <div class="name">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="user-name" formControlName="email"  id="user-name" placeholder="email">
+              </div>
+
+              <div class="password">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password"  formControlName="password" id="user-password" placeholder="Password">
+              </div>
+              <div class="password">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="confirmPassword"  id="confirmPassword" placeholder="confirmPassword">
+              </div>
+
+              
+
+              <!-- Login Button Field -->
+              <div class="sign-up">
+                <button type="submit"  (click)="register()">Register</button>
+              </div>
+            </form>
+
+           
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

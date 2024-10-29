@@ -1,0 +1,72 @@
+<div class="container rounded bg-white mt-6 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img 
+                    class="rounded-circle mt-5" 
+                    width="150px" 
+                    src="https://media.istockphoto.com/id/1189047811/fr/vectoriel/blue-wave-logo.jpg?s=612x612&w=0&k=20&c=CV9ShFWo8bzPTeLqkqOTl6Y2HmvypQCYYQQO5IWYl0k=" 
+                    alt="Profile Picture"
+                >
+               <span class="text-black-50"></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="col-md-6 border-right"> <!-- Adjusted from col-md-5 to col-md-6 -->
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <form [formGroup]="companyForm">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">specifiedIn</label>
+                            <input type="text" class="form-control" formControlName="SpecifiedIn" placeholder="SpecifiedIn" >
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">creationDate</label>
+                            <input type="text" class="form-control" formControlName="creationDate"  placeholder="creationDate" >
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label class="labels">inChargeOf</label>
+                            <input type="text" class="form-control" formControlName="inChargeOf" placeholder="InChargeOf" >
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">lastModifDate</label>
+                            <input type="text" class="form-control" formControlName="lastModifDate" placeholder="LastModifDate" >
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">address</label>
+                            <input type="text" class="form-control" formControlName="address" placeholder="address" >
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">denomination</label>
+                            <input type="text" class="form-control" formControlName="denomination" placeholder="denomination" >
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">fax</label>
+                            <input type="text" class="form-control" formControlName="fax" placeholder="fax" >
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">phone</label>
+                            <input type="text" class="form-control" formControlName="phone"  placeholder="phone" >
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">balance</label>
+                            <input type="text" class="form-control" formControlName="balance" placeholder="balance"     readonly 
+                            >
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" (click)="updateDialog()" type="button">Save Profile</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+</div>
