@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  angular-app:
+    build:
+      context: .
+    ports:
+      - "4200:80"
+    volumes:
+      - ~/Documents/AngularProject/CommercialProject/commercial18/nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+    networks:
+      - angular_network
+
+networks:
+  angular_network:
+    driver: bridge

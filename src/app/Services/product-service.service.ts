@@ -28,8 +28,10 @@ AddProduct(data:any){
   }
     DeleteProduct(id:any){
       return this.http.delete(`${this.APIurl}/deleteProduct/${id}`,{responseType:"text"});
-    
-    
+     
+  }
+  findProductById(id:any){
+    return this.http.get(`${this.APIurl}/getProduct/${id}`);
   }
 }
 
